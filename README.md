@@ -1,4 +1,4 @@
-**Amazon Shopping Cart Automation**
+**Amazon Shopping Automation**
 
 #### 📁 Project Overview
 
