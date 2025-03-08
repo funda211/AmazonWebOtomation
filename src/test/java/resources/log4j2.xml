@@ -4,7 +4,7 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %msg%n"/>
         </Console>
-        <File name="File" fileName="src/main/resources/logs/build.log">
+        <File name="File" fileName="${sys:user.dir}/logs/build.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %msg%n"/>
         </File>
     </Appenders>

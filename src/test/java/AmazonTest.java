@@ -29,7 +29,7 @@ public class AmazonTest extends BaseTest {
             LoggerHelper.info("Verifying homepage is loaded...");
             Assert.assertTrue(homePage.isHomePageLoaded(), "Home page did not load correctly.");
             LoggerHelper.info("Homepage loaded successfully.");
-            //homePage.clickTryDifferentImage();
+
 
             // 2. Search for the word "laptop".
             LoggerHelper.info("Searching for 'laptop'...");
@@ -52,7 +52,7 @@ public class AmazonTest extends BaseTest {
 
             CartPage cartPage = new CartPage(driver);
             LoggerHelper.info("Verifying products in the cart...");
-            //Assert.assertTrue(cartPage.verifyCartProducts(addedProductTitles), "Cart products do not match!");
+         //   Assert.assertTrue(cartPage.verifyCartProducts(addedProductTitles), "Cart products do not match!");
             LoggerHelper.info("Cart products verified successfully.");
 
             LoggerHelper.info("Amazon shopping test completed successfully.");

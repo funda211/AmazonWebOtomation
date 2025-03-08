@@ -21,12 +21,7 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    /**
-     * Verifies that the cart contains all the expected products.
-     *
-     * @param expectedProductTitles A list of product titles expected to be in the cart.
-     * @return true if all expected products are found in the cart, false otherwise.
-     */
+
     public boolean verifyCartProducts(List<String> expectedProductTitles) {
         try {
 

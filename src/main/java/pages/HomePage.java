@@ -38,7 +38,7 @@ public class HomePage extends BasePage {
     public boolean isHomePageLoaded() {
         LoggerHelper.info("Checking if the homepage is loaded...");
 
-        // 1. AmazonLogo (CAPTCHA sayfası) kontrolü
+
         try {
             waitForElementToBeVisible(amazonLogo, 3); // Kısa timeout
             if(amazonLogo.isDisplayed()) {
@@ -50,9 +50,9 @@ public class HomePage extends BasePage {
             System.out.println("captcha page not loaded");
         }
 
-        // 2. Normal Amazon logosu kontrolü
+
         try {
-            waitForElementToBeVisible(amazonLogo2, 10);
+            waitForElementToBeVisible(amazonLogo2, 5);
             boolean isLogoDisplayed = amazonLogo2.isDisplayed();
             LoggerHelper.info("Main Amazon logo verification: " + isLogoDisplayed);
             return isLogoDisplayed;
@@ -62,40 +62,7 @@ public class HomePage extends BasePage {
         }
     }
 
-/*public boolean isHomePageLoaded() {
-    LoggerHelper.info("Checking if the homepage is loaded...");
 
-    try {
-        // Önce ilk logo için bekle ve kontrol et
-        waitForElementToBeVisible(amazonLogo, 5);
-        if(amazonLogo.isDisplayed()) {
-            LoggerHelper.info("Homepage loaded with primary logo");
-            return true;
-        }
-    } catch (TimeoutException | NoSuchElementException e) {
-        LoggerHelper.warn("Primary logo not found, checking alternative logo...");
-    }
-
-    try {
-        // İlk logo yoksa alternatif logo için bekle ve kontrol et
-        waitForElementToBeVisible(amazonLogo2, 5);
-        if(amazonLogo2.isDisplayed()) {
-            LoggerHelper.info("Homepage loaded with alternative logo");
-            return true;
-        }
-    } catch (TimeoutException | NoSuchElementException e) {
-        LoggerHelper.error("Neither logo found!");
-    }
-
-    // Her iki logo da bulunamazsa CAPTCHA kontrolü
-    if(isCaptchaPageDisplayed()) {
-        LoggerHelper.info("CAPTCHA detected, handling...");
-        clickTryDifferentImage();
-        return isHomePageLoaded(); // Recursive retry
-    }
-
-    return false;
-}*/
     public void searchForProduct(String product) {
         LoggerHelper.info("Searching for product: " + product);
         typeText(searchBox, product);
@@ -118,25 +85,5 @@ public class HomePage extends BasePage {
         click(tryDifferentImageLink);
     }
 
-/*
-    public boolean isAmazonLogoDisplayed() {
-        LoggerHelper.info("Checking if Amazon logo is displayed...");
-        return amazonLogo.isDisplayed();
-    }
 
-    public boolean isSearchBoxDisplayed() {
-        LoggerHelper.info("Checking if search box is displayed...");
-        return searchBox.isDisplayed();
-    }
-
-
-    public boolean isCartIconDisplayed() {
-        LoggerHelper.info("Checking if cart icon is displayed...");
-        return cartIcon.isDisplayed();
-    }
-
-    public int getCartItemCount() {
-        LoggerHelper.info("Getting cart item count...");
-        return Integer.parseInt(cartIcon.getText());
-    }*/
 }
