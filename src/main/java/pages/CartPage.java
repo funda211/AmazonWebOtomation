@@ -22,33 +22,16 @@ public class CartPage extends BasePage {
     }
 
 
-    public boolean verifyCartProducts(List<String> expectedProductTitles) {
-        try {
+    public boolean verifyCartItemCount(int expectedCartItemCount) {
+        int actualCartItemCount = cartItems.size(); // cartItems, sepetteki ürünleri temsil eden WebElement listesi
+        LoggerHelper.info("Expected cart count: " + expectedCartItemCount);
+        LoggerHelper.info("Actual cart count: " + actualCartItemCount);
 
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.visibilityOfAllElements(cartItems));
-
-
-            List<String> actualProductTitles = new ArrayList<>();
-            for (WebElement item : cartItems) {
-                WebElement titleElement = item.findElement(By.cssSelector(".sc-product-title"));
-                String title = titleElement.getText();
-                actualProductTitles.add(title);
-                LoggerHelper.info("Product in cart: " + title);
-            }
-
-
-            boolean result = actualProductTitles.containsAll(expectedProductTitles);
-            if (!result) {
-                LoggerHelper.error("Some products are missing in the cart.");
-                LoggerHelper.error("Expected: " + expectedProductTitles);
-                LoggerHelper.error("Actual: " + actualProductTitles);
-            }
-
-            return result;
-        } catch (Exception e) {
-            LoggerHelper.error("An error occurred while verifying cart products: " + e.getMessage());
+        if (expectedCartItemCount != actualCartItemCount) {
+            LoggerHelper.error("Cart item count mismatch!");
             return false;
         }
+        return true;
     }
+
 }

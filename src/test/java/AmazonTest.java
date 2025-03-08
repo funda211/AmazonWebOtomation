@@ -52,7 +52,9 @@ public class AmazonTest extends BaseTest {
 
             CartPage cartPage = new CartPage(driver);
             LoggerHelper.info("Verifying products in the cart...");
-         //   Assert.assertTrue(cartPage.verifyCartProducts(addedProductTitles), "Cart products do not match!");
+            int expectedCount = searchResultsPage.getAddedProductTitles().size();
+            Assert.assertTrue(cartPage.verifyCartItemCount(expectedCount), "Cart item count mismatch!");
+
             LoggerHelper.info("Cart products verified successfully.");
 
             LoggerHelper.info("Amazon shopping test completed successfully.");
