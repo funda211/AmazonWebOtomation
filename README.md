@@ -18,7 +18,7 @@ This project is an automated test suite developed to validate the shopping cart 
 
 **Maven:** Handles project dependencies and builds.
 
-**HtmlReport / AllureReport:** Used for test execution reporting (Bonus feature). After run test, write on terminal " allure serve target/allure-results" to show allure report on browser.
+**HtmlReport / AllureReport:** Used for test execution reporting (Bonus feature). After run test, write on terminal "allure serve allure-results " to show allure report on browser.
 
 #### 📁 Test Workflow
 

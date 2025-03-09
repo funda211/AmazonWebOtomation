@@ -44,7 +44,7 @@ public class HomePage extends BasePage {
             if(amazonLogo.isDisplayed()) {
                 LoggerHelper.info("CAPTCHA logo found, clicking try different image...");
                 clickTryDifferentImage();
-                return true; // CAPTCHA handle edildi olarak işaretle
+                return true;
             }
         } catch (TimeoutException e) {
             System.out.println("captcha page not loaded");
